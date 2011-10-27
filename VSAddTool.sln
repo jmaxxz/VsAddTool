@@ -1,0 +1,24 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VSAddTool", "VSAddTool\VSAddTool.csproj", "{D30B78D8-A282-430F-8BD7-0CF87257138D}"
+EndProject
+Project("{9344bdbb-3e7f-41fc-a0dd-8665d75ee146}") = "Packages", "Packages.mdproj", "{C38768FE-DC31-4739-A55D-025CCEE94C8B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C38768FE-DC31-4739-A55D-025CCEE94C8B}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{C38768FE-DC31-4739-A55D-025CCEE94C8B}.Release|x86.ActiveCfg = Release|Any CPU
+		{D30B78D8-A282-430F-8BD7-0CF87257138D}.Debug|x86.ActiveCfg = Debug|x86
+		{D30B78D8-A282-430F-8BD7-0CF87257138D}.Debug|x86.Build.0 = Debug|x86
+		{D30B78D8-A282-430F-8BD7-0CF87257138D}.Release|x86.ActiveCfg = Release|x86
+		{D30B78D8-A282-430F-8BD7-0CF87257138D}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = VSAddTool\VSAddTool.csproj
+	EndGlobalSection
+EndGlobal

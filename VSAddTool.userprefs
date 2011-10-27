@@ -1,0 +1,14 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="VSAddTool/Main.cs">
+    <Files>
+      <File FileName="VSAddTool/Main.cs" Line="15" Column="30" />
+      <File FileName="VSAddTool/Option.cs" Line="5" Column="20" />
+      <File FileName="VSAddTool/Options.cs" Line="5" Column="20" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
