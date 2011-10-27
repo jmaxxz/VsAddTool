@@ -1,4 +1,3 @@
-using System;
 using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
@@ -25,12 +24,6 @@ namespace VSAddTool
 			_options.Add (o);
 		}
 		
-		//public bool Parse(string[] args)
-		//{
-		//			string rawString = string.Join(" ",args);
-		//}
-		//private bool InnerParse (string[] args)
-		//{
 		public bool Parse(string[] args)
 		{
 			var copyOfOptions = _options.ToList();

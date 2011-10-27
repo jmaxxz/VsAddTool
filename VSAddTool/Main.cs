@@ -1,7 +1,5 @@
 using System;
 using Microsoft.Win32;
-using System.Linq;
-using System.Collections;
 
 namespace VSAddTool
 {
@@ -11,34 +9,49 @@ namespace VSAddTool
 		{
 			string command = "";
 			string parameters = "";
+		    string name = "";
+		    string dir = "";
+		    int options = 18;
 			
 			Options opts = new Options
 			{
-				new Option(new string[]{}, (x)=>command=x),
-				new Option(new string[]{}, (x)=>parameters=x)
+                new Option(new string[]{}, x=>name=x),
+				new Option(new string[]{}, x=>command=x),
+				new Option(new []{"p","params"}, x=>parameters=x),
+                new Option(new []{"d","startdir"}, x=>dir=x),
 			};
+		    opts.Parse(args);
 			
-			if(command =="")
+			if(command =="" || name == "")
 			{
+                Console.WriteLine("Usage: VSAddTool.exe <Tool Name> <Command> [-p <command parameters>][-d <start in directory>]");
 				return 1;	
 			}
-			
-			int currentTool= 0;
-			
-			
-			var exToolKey = Registry.CurrentUser.OpenSubKey("foo\\doo\\n");
-			string[] values = exToolKey.GetValueNames();
-			
-			string prefix = "FoooKey";
-			values.Where(x=>x.StartsWith(prefix)).Select(x=>x.Substring(prefix.Length)).Where(x=>CanParseToInt(x)).Select(x=>int.Parse(x));
-			
-			return 0;
-		}
-		
-		private static bool CanParseToInt(string s)
-		{
-				int x;
-			return int.TryParse(s,out x);
+
+
+            using (var exToolKey = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\VisualStudio\10.0\External Tools",true))
+            {
+                int numOfTools = (int) exToolKey.GetValue("ToolNumKeys");
+
+                string pathVal = "ToolCmd" + numOfTools;
+                string argsVal = "ToolArg" + numOfTools;
+                string dirVal = "ToolDir" + numOfTools;
+                string nameVal = "ToolTitle" + numOfTools;
+                string optsVal = "ToolOpt" + numOfTools;
+
+
+
+                exToolKey.SetValue(pathVal, command, RegistryValueKind.String);
+                exToolKey.SetValue(argsVal, parameters, RegistryValueKind.String);
+                exToolKey.SetValue(nameVal, name, RegistryValueKind.String);
+                exToolKey.SetValue(dirVal, dir, RegistryValueKind.String);
+                exToolKey.SetValue(optsVal, options, RegistryValueKind.DWord);
+                exToolKey.SetValue("ToolNumKeys", numOfTools + 1, RegistryValueKind.DWord);
+            }
+
+
+
+		    return 0;
 		}
 	}
 }
