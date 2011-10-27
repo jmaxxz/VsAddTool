@@ -12,20 +12,20 @@ namespace VSAddTool
             string name = "";
             string dir = "";
             int options = 18;
-			
+            
             Options opts = new Options
-			{
+            {
                 new Option(new string[]{}, x=>name=x),
-				new Option(new string[]{}, x=>command=x),
-				new Option(new []{"p","params"}, x=>parameters=x),
+                new Option(new string[]{}, x=>command=x),
+                new Option(new []{"p","params"}, x=>parameters=x),
                 new Option(new []{"d","startdir"}, x=>dir=x),
-			};
+            };
             opts.Parse (args);
-			
+            
             if (command == "" || name == "")
             {
                 Console.WriteLine ("Usage: VSAddTool.exe <Tool Name> <Command> [-p <command parameters>][-d <start in directory>]");
-                return 1;	
+                return 1;    
             }
 
 

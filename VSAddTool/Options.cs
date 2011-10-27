@@ -8,11 +8,11 @@ namespace VSAddTool
         private IList<Option> _options;
 
         /*
-	     * The following cases eventually need to be handled, but for now they will be ignored:
-	     * 1) Flagless options (a.k.a. nonoptional data parameters)
-	     * 2) Values with whitespace
-	     * 3) Do not run options more than once if they are specified more than once
-		 */
+         * The following cases eventually need to be handled, but for now they will be ignored:
+         * 1) Flagless options (a.k.a. nonoptional data parameters)
+         * 2) Values with whitespace
+         * 3) Do not run options more than once if they are specified more than once
+         */
         public Options ()
         {
             _options = new List<Option> ();
@@ -23,7 +23,7 @@ namespace VSAddTool
             //Eventually should scan existing options for collisions, or use a dictionary for options
             _options.Add (o);
         }
-		
+        
         public bool Parse (string[] args)
         {
             var copyOfOptions = _options.ToList ();
@@ -48,7 +48,7 @@ namespace VSAddTool
                 {
                     HandleParameter (arg, copyOfOptions);
                 }
-				
+                
                 if (usedNextArg)
                 {
                     i++;
@@ -86,7 +86,7 @@ namespace VSAddTool
             usedNextArg = false;
             return false;
         }
-		
+        
         private bool HandleParameter (string data, IList<Option> opts)
         {
             foreach (var opt in opts)
