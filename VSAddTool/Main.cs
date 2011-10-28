@@ -11,7 +11,7 @@ namespace VSAddTool
             string parameters = "";
             string name = "";
             string dir = "";
-            int options = 18;
+            int options = 16;
             
             Options opts = new Options
             {
@@ -19,6 +19,10 @@ namespace VSAddTool
                 new Option(new string[]{}, x=>command=x),
                 new Option(new []{"p","params"}, x=>parameters=x),
                 new Option(new []{"d","startdir"}, x=>dir=x),
+                new Option(new []{"o","output"}, ()=>options|=8),
+                new Option(new []{"c","exit"}, ()=>options|=2),
+                new Option(new []{"u","unicode"}, ()=>options|=64),
+                new Option(new []{"a","prompt"}, ()=>options|=4),
             };
             opts.Parse (args);
             
@@ -27,6 +31,7 @@ namespace VSAddTool
                 Console.WriteLine ("Usage: VSAddTool.exe <Tool Name> <Command> [-p <command parameters>][-d <start in directory>]");
                 return 1;    
             }
+
 
 
             using (var exToolKey = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\VisualStudio\10.0\External Tools",true))
